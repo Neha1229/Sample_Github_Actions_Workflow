@@ -10,13 +10,15 @@ on:
       - master
 
 jobs:
-  deploy:
+  deploy_push:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: "Running on GITHUB_BRANCH push"
         run: echo "Running on GITHUB_BRANCH push"
 
   deploy_pull: 
+    if: github.event_name == 'pull'
     runs-on: ubuntu-latest
     steps:
       - name: "Running on pull request"
